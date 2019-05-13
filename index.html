@@ -1,6 +1,70 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+      * {
+        color: inherit;
+      }
+
+      .dialog {
+        align-items: center;
+        background-color:  rgba(0, 0, 0, 0.75);
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+
+      .dialog > * {
+        background-color: #fff;
+        max-width: 40rem;
+        width: 90%;
+      }
+
+      .dialog__sections {
+        /* intentionally blank */
+      }
+
+      .dialog__sections > * {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .dialog__title {
+        background-color: #21366C;
+        color: #fff;
+        cursor: pointer;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+      }
+
+      .dialog__title::after {
+        content: '×';
+        float: right;
+      }
+
+      .dialog__navigation {
+        background-color: #000;
+        padding: 0.5rem;
+      }
+
+      .dialog__navigation > * {
+        color: #fff;
+        display: inline-block;
+        list-style-type: none;
+      }
+
+      .slide {
+        display: none;
+      }
+
+      .slide.slide--current {
+        display: block;
+      }
+    </style>
     <link href="styles.css" rel="stylesheet">
     <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
     <script>
