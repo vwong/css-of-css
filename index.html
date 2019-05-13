@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+    <script>
+      (() => {
+        const application = Stimulus.Application.start()
+
+        application.register("slideshow", class extends Stimulus.Controller {
+          static get targets() {
+            return [ "slide" ]
+          }
+
+          initialize() {
+            this.showCurrentSlide()
+          }
+
+          next() {
+            this.index = Math.min(this.index + 1 , this.slideTargets.length - 1)
+          }
+
+          prev() {
+            this.index = Math.max(this.index - 1 , 0)
+          }
+
+          showCurrentSlide() {
+            this.slideTargets.forEach((el, i) => {
+              el.classList.toggle('slide--current', this.index == i)
+            })
+          }
+
+          get index() {
+            return parseInt(this.data.get('index'))
+          }
+
+          set index(value) {
+            this.data.set('index', value)
+            this.showCurrentSlide()
+          }
+        })
+      })()
+    </script>
+  </head>
+  <body>
+    <div class="dialog" data-controller="slideshow" data-slideshow-index="0">
+      <article class="dialog__sections">
+        <header class="dialog__title">
+          Crazy Scary Shitloads of CSS
+        </header>
+        <section data-target="slideshow.slide" class="slide">
+          <h1>How to write CSS at scale</h1>
+          <p>Voon Wong - May 2019</p>
+        </section>
+        <section data-target="slideshow.slide" class="slide">
+          <h2>CSS is easy</h2>
+          <p>Assumed knowledge:</p>
+          <ul>
+            <li>Display <code>block</code>, <code>inline</code>, <code>flex</code>, etc.</li>
+            <li>Layouts <code>margin</code>, <code>padding</code>, etc.</li>
+          </ul>
+        </section>
+        <section data-target="slideshow.slide" class="slide">
+          <h2>CSS is hard</h2>
+          <p>10s of selectors: 👌</p>
+          <p>100s of selectors: 😰</p>
+          <p>1000s of selectors: 🤦</p>
+        </section>
+        <section data-target="slideshow.slide" class="slide">
+          <h2>Writing selectors</h2>
+          <a href="v1.html" target="_blank">Let's Begin</a>
+        </section>
+        <section data-target="slideshow.slide" class="slide">
+          <h2>BEM</h2>
+          <p>Basically a strategy to name & group selectors to ensure uniqueness: <code>block</code>, <code>block__elements</code>, <code>block--modifiers</code>, <code>block__element--modifiers</code></p>
+          <p>Doesn't specify how to write declarations</p>
+        </section>
+        <section data-target="slideshow.slide" class="slide">
+          <h2>CSS Modules, StyledComponents</h2>
+          <p>Effectively tools to ensure unique class names programmatically</p>
+          <p>Doesn't specify how to write declarations</p>
+        </section>
+        <section data-target="slideshow.slide" class="slide">
+          <h2>Custom properties aka CSS variables</h2>
+          <p>Allows another level of indirection.</p>
+          <p>Useful when many declarations refer to same variable; and that variable is dynamically (or statically) changing based on media queries, pseudo states, etc.</p>
+          <p>Can be used as global (on root element), or local:</p>
+          <code>
+            <pre>
+.spinner {
+  --spinner-thickness: 0.2rem;
+  --spinner-size: 2rem;
+
+  align-items: center;
+  display: flex;
+  height: 0;
+  justify-content: center;
+
+  &::after {
+    animation: delayed 1s, spin 2s linear infinite;
+    border: var(--spinner-thickness) solid var(--brand-primary-grey);
+    border-radius: 50%;
+    border-top: var(--spinner-thickness) solid var(--brand-primary);
+    content: '';
+    height: var(--spinner-size);
+    width: var(--spinner-size);
+  }
+}
+
+.spinner--large {
+  --spinner-thickness: 0.5rem;
+  --spinner-size: 5rem;
+}
+              </pre>
+          </code>
+        </section>
+        <section data-target="slideshow.slide" class="slide">
+          <h1>Questions & Discussions</h1>
+          <p>Key points:</p>
+          <ul>
+            <li>CSS and HTML are co-dependent</li>
+            <li>Selector blocks are CSS "functions"; let them have a single responsibility</li>
+            <li>Reduce unnecessary classes especially in parent-child relationships, and structure the HTML to ellicit such relationships</li>
+            <li>Using up to 3 levels of cascades can also reduce verbiage</li>
+            <li>Understand the basics, then consider role of methodologies/tools such as BEM, CSS Modules, and StyledComponents in managing class names</li>
+          </ul>
+        </section>
+        <footer>
+          <ul class="dialog__navigation">
+            <li><a href="#" data-action="slideshow#prev">Prev</a></li>
+            <li><a href="#" data-action="slideshow#next">Next</a></li>
+          </ul>
+        </footer>
+      </article>
+    </div>
+  </body>
+</html>

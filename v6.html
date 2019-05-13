@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      /* universal selector has specificity 0 */
+      * {
+        color: inherit;
+      }
+
+      /* element + pseudo elements have specificity 1 */
+      /* we have none in this example */
+
+      /* classes + pseudo classes + attributes have specificity 10 */
+      .dialog {
+        align-items: center;
+        background-color:  rgba(0, 0, 0, 0.75);
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+
+      .dialog > * {
+        background-color: #fff;
+        max-width: 40rem;
+        width: 90%;
+      }
+
+      .dialog__sections {
+        /* intentionally blank */
+      }
+
+      .dialog__sections > * {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .dialog__title {
+        background-color: #21366C;
+        color: #fff;
+        cursor: pointer;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+      }
+
+      .dialog__title::after {
+        content: '×';
+        float: right;
+      }
+
+      .dialog__navigation {
+        background-color: #000;
+        padding: 0.5rem;
+      }
+
+      .dialog__navigation > * {
+        color: #fff;
+        display: inline-block;
+        list-style-type: none;
+      }
+
+      /* IDs have specificity 100 */
+      /* we have none here */
+    </style>
+  </head>
+  <body>
+    <div class="dialog">
+      <article class="dialog__sections">
+        <header class="dialog__title">
+          The Cascade
+        </header>
+        <section>
+          <p>It is not so much the cascade that is scary, but the <em>amount of</em>.  Keeping the cascade to a manageable amount results in DRY and semantic code.</p>
+          <p>Recommend 3 levels:
+            <ul>
+              <li>elements + pseudo-elements</li>
+              <li>classes + pseudo-classes + attributes</li>
+              <li>IDs</li>
+            </ul>
+          </p>
+          <p>With each corresponding to increased specificity.</p>
+          <p>(Example reverts to using BEM convention, but again, not necessary)</p>
+        </section>
+        <footer>
+          <ul class="dialog__navigation">
+            <li><a href="v1.html">v1</a></li>
+            <li><a href="v2.html">v2</a></li>
+            <li><a href="v3.html">v3</a></li>
+            <li><a href="v4.html">v4</a></li>
+            <li><a href="v5.html">v5</a></li>
+            <li>v6</li>
+          </ul>
+        </footer>
+      </article>
+    </div>
+  </body>
+</html>

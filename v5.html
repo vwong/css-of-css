@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      .front-and-center {
+        align-items: center;
+        background-color:  rgba(0, 0, 0, 0.75);
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+
+      .front-and-center > * {
+        background-color: #fff;
+        max-width: 40rem;
+        width: 90%;
+      }
+
+      .avoid-edges {
+        /* intentionally blank */
+      }
+
+      .avoid-edges > * {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .title {
+        background-color: #21366C;
+        color: #fff;
+        cursor: pointer;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+      }
+
+      .title::after {
+        content: '×';
+        float: right;
+      }
+
+      .navigation {
+        background-color: #000;
+        padding: 0.5rem;
+      }
+
+      .navigation > * {
+        color: #fff;
+        display: inline-block;
+        list-style-type: none;
+      }
+
+      .link {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="front-and-center">
+      <article class="avoid-edges">
+        <header class="title">
+          Parents and children
+        </header>
+        <section>
+          <p>Recognising that most CSS declarations have a parent/child relationship; ie that it either directly affects the selector's own style its immediate children, or that selectors come in pairs, we can reduce the classes verbiage with the universal selector.</p>
+          <p>Ultimately, CSS should read like a specification/test, where every selector is a unit.</p>
+        </section>
+        <footer>
+          <ul class="navigation">
+            <li><a class="link" href="v1.html">v1</a></li>
+            <li><a class="link" href="v2.html">v2</a></li>
+            <li><a class="link" href="v3.html">v3</a></li>
+            <li><a class="link" href="v4.html">v4</a></li>
+            <li>v5</li>
+            <li><a class="link" href="v6.html">v6</a></li>
+          </ul>
+        </footer>
+      </article>
+    </div>
+  </body>
+</html>

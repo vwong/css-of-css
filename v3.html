@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      .front-and-center {
+        align-items: center;
+        background-color:  rgba(0, 0, 0, 0.75);
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+
+      .front-and-center__contents {
+        background-color: #fff;
+        max-width: 40rem;
+        width: 90%;
+      }
+
+      .avoid-edges {
+        /* intentionally blank */
+      }
+
+      .avoid-edges__parts {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .title {
+        background-color: #21366C;
+        color: #fff;
+        cursor: pointer;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+      }
+
+      .title::after {
+        content: '×';
+        float: right;
+      }
+
+      .navigation {
+        background-color: #000;
+        padding: 0.5rem;
+      }
+
+      .navigation__item {
+        color: #fff;
+        display: inline-block;
+        list-style-type: none;
+      }
+
+      .link {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="front-and-center">
+      <article class="front-and-center__contents avoid-edges">
+        <header class="avoid-edges__parts title">
+          Semantic CSS Selectors
+        </header>
+        <section class="avoid-edges__parts">
+          <p>In JS, we're encouraged to use the Single Responsibility Principle (SRP), but we tend to forget this in CSS.  As a result, we accidentally build large <em>blocks</em> with many <em>block elements</em>.</p>
+          <p>Here, we're still using BEM.  And again, not necessary in this context.  But now split across <em>multiple blocks</em>.  In some elements, we now have multiple classes (ie, <em>blocks</em>), each with its own responsibility.  Relationships between/among <em>block elements</em> becomes clearer as each <em>block</em> is now smaller.</p>
+        </section>
+        <footer class="avoid-edges__parts">
+          <ul class="navigation">
+            <li class="navigation__item">
+              <a class="link" href="v1.html">v1</a>
+            </li>
+            <li class="navigation__item">
+              <a class="link" href="v2.html">v2</a>
+            </li>
+            <li class="navigation__item">
+              v3
+            </li>
+            <li class="navigation__item">
+              <a class="link" href="v4.html">v4</a>
+            </li>
+            <li class="navigation__item">
+              <a class="link" href="v5.html">v5</a>
+            </li>
+            <li class="navigation__item">
+              <a class="link" href="v6.html">v6</a>
+            </li>
+          </ul>
+        </footer>
+      </article>
+    </div>
+  </body>
+</html>

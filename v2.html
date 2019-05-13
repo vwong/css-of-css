@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      .dialog {
+        align-items: center;
+        background-color:  rgba(0, 0, 0, 0.75);
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+
+      .dialog__modal {
+        background-color: #fff;
+        max-width: 40rem;
+        width: 90%;
+      }
+
+      .dialog__header {
+        background-color: #21366C;
+        color: #fff;
+        cursor: pointer;
+        padding: 1rem;
+      }
+
+      .dialog__header::after {
+        content: '×';
+        float: right;
+      }
+
+      .dialog__body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .dialog__footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .dialog__navigation {
+        background-color: #000;
+        padding: 0.5rem;
+      }
+
+      .dialog__navigation-item {
+        color: #fff;
+        display: inline-block;
+        list-style-type: none;
+      }
+
+      .dialog__navigation-item-link {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dialog">
+      <article class="dialog__modal">
+        <header class="dialog__header">
+          HTML depends on CSS
+        </header>
+        <section class="dialog__body">
+          <p>In this version, the CSS is clean and uncluttered, but the HTML is littered with CSS classes which must be use in some specific order - we say that the HTML depends on the CSS.</p>
+          <p>Performance is improved as CSS right-to-left matching is drastically reduced.</p>
+          <p>(Here, I've used BEM naming conventions, but it's not actually required for the example.)</p>
+        </section>
+        <footer class="dialog__footer">
+          <ul class="dialog__navigation">
+            <li class="dialog__navigation-item">
+              <a class="dialog__navigation-item-link" href="v1.html">v1</a>
+            </li>
+            <li class="dialog__navigation-item">
+              v2
+            </li>
+            <li class="dialog__navigation-item">
+              <a class="dialog__navigation-item-link" href="v3.html">v3</a>
+            </li>
+            <li class="dialog__navigation-item">
+              <a class="dialog__navigation-item-link" href="v4.html">v4</a>
+            </li>
+            <li class="dialog__navigation-item">
+              <a class="dialog__navigation-item-link" href="v5.html">v5</a>
+            </li>
+            <li class="dialog__navigation-item">
+              <a class="dialog__navigation-item-link" href="v6.html">v6</a>
+            </li>
+          </ul>
+        </footer>
+      </article>
+    </div>
+  </body>
+</html>
